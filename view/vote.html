@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>投票</title>
+	</head>
+	<body>
+		<form action="#">
+			<h2>群里谁最帅？</h2>
+			<input type="radio" value="太君" name="user" />太君<br/>
+			<input type="radio" value="鸿鸿" name="user" />鸿鸿<br/>
+			<input type="radio" value="大炮权" name="user" />大炮权<br/>
+			<input type="radio" value="锟和" name="user" />锟和<br/>
+			<input type="radio" value="西门吹雪" name="user" />西门吹雪<br/><br/>
+			<input type="button" name="submit" value="确认" /><br/>
+		</form>
+		<div>你的选择是 : <span id="choice"></span></div>
+		<script type="text/javascript">
+			// 给按钮添加监听事件
+			document.getElementsByName("submit")[0]
+			.addEventListener("click", function() {
+				// 获取所有单选框对象
+				var radios = document.getElementsByName("user");
+				// 遍历单选框
+				for(var i = 0; i < radios.length; i ++) {
+					// 判断是否被选择了
+					if(radios[i].checked == true) {
+						// 赋值到结果标签
+						document.getElementById("choice").innerHTML = radios[i].value;
+					}
+				}
+			}, false);
+		</script>
+	</body>
+</html>
