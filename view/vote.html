@@ -12,12 +12,38 @@
 			<input type="radio" value="大炮权" name="user" />大炮权<br/>
 			<input type="radio" value="锟和" name="user" />锟和<br/>
 			<input type="radio" value="西门吹雪" name="user" />西门吹雪<br/><br/>
-			<input type="button" name="submit" value="确认" /><br/>
+			<input type="button" name="add" value="确认投票" /><br/>
+			<input type="button" name="get" value="查看当前票数" /><br/>
 		</form>
 		<div>你的选择是 : <span id="choice"></span></div>
+		<div id="result"></div>
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js" ></script>
 		<script type="text/javascript">
-			// 给按钮添加监听事件
-			document.getElementsByName("submit")[0]
+			
+			function get() {
+				// 异步请求
+				$.ajax({
+					cache: false,
+					type:"get",
+					url:"http://www.bluesking.cn/demo/sub/1",
+					async:true,
+					error: function(request) {
+    	                alert("Connection error");
+    	            },
+    	            success: function(data) {
+    	            	document.getElementById("result").innerText = data;
+    	            }
+				});
+			}
+			
+			// 查询按钮添加监听事件
+			document.getElementsByName("get")[0]
+			.addEventListener("click", function() {
+				get();
+			}, false);
+			
+			// 给确认投票按钮添加监听事件
+			document.getElementsByName("add")[0]
 			.addEventListener("click", function() {
 				// 获取所有单选框对象
 				var radios = document.getElementsByName("user");
@@ -27,6 +53,19 @@
 					if(radios[i].checked == true) {
 						// 赋值到结果标签
 						document.getElementById("choice").innerHTML = radios[i].value;
+						// 异步请求
+						$.ajax({
+							cache: false,
+							type:"get",
+							url:"http://bluesking.cn/demo/add/" + i,
+							async:true,
+							error: function(request) {
+		    	                alert("Connection error");
+		    	            },
+		    	            success: function(data) {
+		    	            	get();
+		    	            }
+						});
 					}
 				}
 			}, false);
