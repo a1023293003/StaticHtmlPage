@@ -2,27 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ECharts</title>
+    <title>结果分析</title>
     <!-- 引入 echarts.js -->
     <script src="../js/echarts.min.js"></script>
-   <style>
-    	h2 {
-    		text-align: center;
-    	}
-    	#pieChart, #barChart, #multiBarChart {
-    		margin: auto;
-    	}
-    </style>
 </head>
 <body>
-	<h2>以下数据均爬取自拉勾网</h2>
-<div id="pieChart" style="width: 600px;height:400px;"></div>
+	<h2 style="text-align: center;">以下数据均爬取自拉勾网</h2>
+<div id="pieChart11" style="width: 600px;height:400px;margin: auto;"></div>
 <script type="text/javascript">
 	// 基于准备好的dom，初始化echarts实例
-	var pieChart = echarts.init(document.getElementById('pieChart'));
+	var pieChart11 = echarts.init(document.getElementById('pieChart11'));
 
 	// 指定图表的配置项和数据
-	var pieChartOption = {
+	var pieChart11Option = {
 		title : {
 			text: '广州Java招聘工作经验要求职位分布',
 			subtext: '2017年8月29日',
@@ -55,13 +47,13 @@
 		]
 	};
 	// 使用刚指定的配置项和数据显示图表。
-	pieChart.setOption(pieChartOption);
+	pieChart11.setOption(pieChart11Option);
 </script>
 
-<div id="barChart" style="width: 600px;height:400px;"></div>
+<div id="barChart12" style="width: 600px;height:400px;margin: auto;"></div>
 <script>
-	var barChart = echarts.init(document.getElementById('barChart'));
-	var barChartOption = {
+	var barChart12 = echarts.init(document.getElementById('barChart12'));
+	var barChart12Option = {
 		color: ['#3398DB'],
 		title : {
 			text: '广州Java招聘职位城区分布',
@@ -104,13 +96,13 @@
 			}
 		]
 	};
-	barChart.setOption(barChartOption);
+	barChart12.setOption(barChart12Option);
 </script>
 
-<div id="multiBarChart" style="width: 600px;height:400px;"></div>
+<div id="multiBarChart13" style="width: 600px;height:400px;margin: auto;"></div>
 <script>
-	var multiBarChart = echarts.init(document.getElementById('multiBarChart'));
-	multiBarChartOption = {
+	var multiBarChart13 = echarts.init(document.getElementById('multiBarChart13'));
+	multiBarChart13Option = {
 		tooltip : {
 			trigger: 'axis',
 			axisPointer: {
@@ -156,8 +148,352 @@
 		],
 		series : [{name:'1-3年',type: 'bar',data:[13,1,253,78,29,12,3,9,12,47,8]},{name:'10年以上',type: 'bar',data:[1,1,null,null,null,null,null,null,null,null,null]},{name:'1年以下',type: 'bar',data:[7,2,2,1,null,null,null,null,null,null,null]},{name:'3-5年',type: 'bar',data:[9,4,359,55,55,16,2,10,35,48,9]},{name:'5-10年',type: 'bar',data:[3,1,127,19,9,5,4,10,9,1,null]},{name:'不限',type: 'bar',data:[4,1,28,6,5,3,2,3,13,null,null]},{name:'应届毕业生',type: 'bar',data:[24,8,2,1,3,null,null,null,null,null,null]}]
 	};
-	multiBarChart.setOption(multiBarChartOption);
+	multiBarChart13.setOption(multiBarChart13Option);
 </script>
+
+<div id="barChart14" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart14 = echarts.init(document.getElementById('barChart14'));
+	var barChart14Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java1-3年工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["3k","4k","5k","6k","7k","8k","9k","10k","11k","12k","15k","16k","18k","20k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[4,15,34,78,60,145,25,72,1,11,15,1,1,3]
+			}
+		]
+	};
+	barChart14.setOption(barChart14Option);
+</script>
+
+<div id="barChart15" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart15 = echarts.init(document.getElementById('barChart15'));
+	var barChart15Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java10年以上工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["25k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[2]
+			}
+		]
+	};
+	barChart15.setOption(barChart15Option);
+</script>
+
+<div id="barChart16" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart16 = echarts.init(document.getElementById('barChart16'));
+	var barChart16Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java1年以下工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["4k","5k","6k","8k","15k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[2,5,3,1,1]
+			}
+		]
+	};
+	barChart16.setOption(barChart16Option);
+</script>
+
+<div id="barChart17" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart17 = echarts.init(document.getElementById('barChart17'));
+	var barChart17Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java3-5年工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["4k","5k","6k","7k","8k","9k","10k","11k","12k","13k","14k","15k","16k","17k","18k","20k","25k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[2,2,16,14,98,28,215,6,61,16,5,108,2,2,7,15,5]
+			}
+		]
+	};
+	barChart17.setOption(barChart17Option);
+</script>
+
+<div id="barChart18" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart18 = echarts.init(document.getElementById('barChart18'));
+	var barChart18Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java5-10年工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["6k","8k","10k","12k","13k","14k","15k","16k","17k","18k","20k","22k","25k","30k","50k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[1,2,23,20,6,7,75,3,2,8,31,1,7,1,1]
+			}
+		]
+	};
+	barChart18.setOption(barChart18Option);
+</script>
+
+<div id="barChart19" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart19 = echarts.init(document.getElementById('barChart19'));
+	var barChart19Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java不限工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["1k","2k","3k","4k","5k","6k","7k","8k","9k","10k","12k","15k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[1,11,7,7,11,5,1,10,1,5,2,4]
+			}
+		]
+	};
+	barChart19.setOption(barChart19Option);
+</script>
+
+<div id="barChart20" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+	var barChart20 = echarts.init(document.getElementById('barChart20'));
+	var barChart20Option = {
+		color: ['#3398DB'],
+		title : {
+			text: '广州Java应届毕业生工作经验底薪分布',
+			subtext: '2017年8月29日',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {			// 坐标轴指示器，坐标轴触发有效
+				type : 'shadow'		// 默认为直线，可选为：'line' | 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ["1k","2k","3k","4k","5k","6k","7k","8k","9k"],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				name : '单位:k'
+			}
+		],
+		series : [
+			{
+				name:'底薪',
+				type:'bar',
+				barWidth: '60%',
+				data:[1,11,7,6,4,4,2,2,1]
+			}
+		]
+	};
+	barChart20.setOption(barChart20Option);
+</script>
+
 
 </body>
 </html>
