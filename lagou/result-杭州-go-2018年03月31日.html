@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>结果分析</title>
+    <!-- 引入 echarts.js -->
+    <script src="../js/echarts.min.js"></script>
+</head>
+<body>
+	<h2 style="text-align: center;">以下数据均爬取自拉勾网</h2>
+<div id="pieChart159" style="width: 600px;height:400px;margin: auto;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var pieChart159 = echarts.init(document.getElementById('pieChart159'));
+
+    // 指定图表的配置项和数据
+    var pieChart159Option = {
+        title : {
+            text: '杭州go招聘工作经验要求职位分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ["1-3年","3-5年","5-10年","不限","应届毕业生"]
+        },
+        series : [
+            {
+                name: '职位数量',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data: [{name:'1-3年', value:16},{name:'3-5年', value:16},{name:'5-10年', value:3},{name:'不限', value:3},{name:'应届毕业生', value:1}],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    pieChart159.setOption(pieChart159Option);
+</script>
+
+<div id="barChart160" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart160 = echarts.init(document.getElementById('barChart160'));
+    var barChart160Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go招聘职位城区分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["下沙","余杭区","江干区","滨江区","萧山区","西湖区"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,8,3,8,1,18]
+            }
+        ]
+    };
+    barChart160.setOption(barChart160Option);
+</script>
+
+<div id="multiBarChart161" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var multiBarChart161 = echarts.init(document.getElementById('multiBarChart161'));
+    multiBarChart161Option = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true
+                }
+            }
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        legend: {
+            data:["1-3年","3-5年","5-10年","不限","","应届毕业生"],
+            selectedMode:'single',
+            itemGap: 5
+        },
+        grid: {
+            top: '12%',
+            left: '1%',
+            right: '10%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type : 'category',
+                data : ["下沙","余杭区","江干区","滨江区","萧山区","西湖区"]
+            }
+        ],
+        yAxis: [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [{name:'1-3年',type: 'bar',data:[1,6,1,1,1,6]},{name:'3-5年',type: 'bar',data:[0,1,1,7,0,7]},{name:'5-10年',type: 'bar',data:[0,0,0,0,0,3]},{name:'不限',type: 'bar',data:[0,1,1,0,0,1]},{name:'应届毕业生',type: 'bar',data:[0,0,0,0,0,1]}]
+    };
+    multiBarChart161.setOption(multiBarChart161Option);
+</script>
+
+<div id="barChart162" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart162 = echarts.init(document.getElementById('barChart162'));
+    var barChart162Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go1-3年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["7k","8k","9k","10k","12k","15k","18k","20k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,2,2,7,1,1,1,1]
+            }
+        ]
+    };
+    barChart162.setOption(barChart162Option);
+</script>
+
+<div id="barChart163" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart163 = echarts.init(document.getElementById('barChart163'));
+    var barChart163Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go3-5年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["9k","10k","12k","15k","20k","25k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,2,6,2,4]
+            }
+        ]
+    };
+    barChart163.setOption(barChart163Option);
+</script>
+
+<div id="barChart164" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart164 = echarts.init(document.getElementById('barChart164'));
+    var barChart164Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go5-10年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["10k","15k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,2]
+            }
+        ]
+    };
+    barChart164.setOption(barChart164Option);
+</script>
+
+<div id="barChart165" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart165 = echarts.init(document.getElementById('barChart165'));
+    var barChart165Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go不限工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["9k","10k","15k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,1]
+            }
+        ]
+    };
+    barChart165.setOption(barChart165Option);
+</script>
+
+<div id="barChart166" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart166 = echarts.init(document.getElementById('barChart166'));
+    var barChart166Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '杭州go应届毕业生工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["2k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1]
+            }
+        ]
+    };
+    barChart166.setOption(barChart166Option);
+</script>
+
+
+</body>
+</html>

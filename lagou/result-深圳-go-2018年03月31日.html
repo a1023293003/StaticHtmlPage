@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>结果分析</title>
+    <!-- 引入 echarts.js -->
+    <script src="../js/echarts.min.js"></script>
+</head>
+<body>
+	<h2 style="text-align: center;">以下数据均爬取自拉勾网</h2>
+<div id="pieChart143" style="width: 600px;height:400px;margin: auto;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var pieChart143 = echarts.init(document.getElementById('pieChart143'));
+
+    // 指定图表的配置项和数据
+    var pieChart143Option = {
+        title : {
+            text: '深圳go招聘工作经验要求职位分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ["1-3年","3-5年","5-10年","不限","应届毕业生"]
+        },
+        series : [
+            {
+                name: '职位数量',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data: [{name:'1-3年', value:28},{name:'3-5年', value:52},{name:'5-10年', value:10},{name:'不限', value:4},{name:'应届毕业生', value:1}],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    pieChart143.setOption(pieChart143Option);
+</script>
+
+<div id="barChart144" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart144 = echarts.init(document.getElementById('barChart144'));
+    var barChart144Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go招聘职位城区分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["南山区","宝安区","福田区","罗湖区"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[80,10,4,1]
+            }
+        ]
+    };
+    barChart144.setOption(barChart144Option);
+</script>
+
+<div id="multiBarChart145" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var multiBarChart145 = echarts.init(document.getElementById('multiBarChart145'));
+    multiBarChart145Option = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true
+                }
+            }
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        legend: {
+            data:["1-3年","3-5年","5-10年","不限","","应届毕业生"],
+            selectedMode:'single',
+            itemGap: 5
+        },
+        grid: {
+            top: '12%',
+            left: '1%',
+            right: '10%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type : 'category',
+                data : ["南山区","宝安区","福田区","罗湖区"]
+            }
+        ],
+        yAxis: [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [{name:'1-3年',type: 'bar',data:[22,5,0,1]},{name:'3-5年',type: 'bar',data:[46,3,3,0]},{name:'5-10年',type: 'bar',data:[8,1,1,0]},{name:'不限',type: 'bar',data:[4,0,0,0]},{name:'应届毕业生',type: 'bar',data:[0,1,0,0]}]
+    };
+    multiBarChart145.setOption(multiBarChart145Option);
+</script>
+
+<div id="barChart146" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart146 = echarts.init(document.getElementById('barChart146'));
+    var barChart146Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go1-3年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["6k","8k","10k","12k","13k","15k","16k","20k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,5,4,1,1,11,3,2]
+            }
+        ]
+    };
+    barChart146.setOption(barChart146Option);
+</script>
+
+<div id="barChart147" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart147 = echarts.init(document.getElementById('barChart147'));
+    var barChart147Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go3-5年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["10k","12k","13k","14k","15k","16k","18k","20k","25k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[2,4,1,1,26,1,5,10,2]
+            }
+        ]
+    };
+    barChart147.setOption(barChart147Option);
+</script>
+
+<div id="barChart148" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart148 = echarts.init(document.getElementById('barChart148'));
+    var barChart148Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go5-10年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["15k","20k","23k","25k","30k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[2,3,1,3,1]
+            }
+        ]
+    };
+    barChart148.setOption(barChart148Option);
+</script>
+
+<div id="barChart149" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart149 = echarts.init(document.getElementById('barChart149'));
+    var barChart149Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go不限工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["13k","15k","16k","20k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,1,1]
+            }
+        ]
+    };
+    barChart149.setOption(barChart149Option);
+</script>
+
+<div id="barChart150" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart150 = echarts.init(document.getElementById('barChart150'));
+    var barChart150Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '深圳go应届毕业生工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["9k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1]
+            }
+        ]
+    };
+    barChart150.setOption(barChart150Option);
+</script>
+
+
+</body>
+</html>

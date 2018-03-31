@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>结果分析</title>
+    <!-- 引入 echarts.js -->
+    <script src="../js/echarts.min.js"></script>
+</head>
+<body>
+	<h2 style="text-align: center;">以下数据均爬取自拉勾网</h2>
+<div id="pieChart125" style="width: 600px;height:400px;margin: auto;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var pieChart125 = echarts.init(document.getElementById('pieChart125'));
+
+    // 指定图表的配置项和数据
+    var pieChart125Option = {
+        title : {
+            text: '上海python招聘工作经验要求职位分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: ["1-3年","1年以下","3-5年","5-10年","不限","应届毕业生"]
+        },
+        series : [
+            {
+                name: '职位数量',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data: [{name:'1-3年', value:96},{name:'1年以下', value:5},{name:'3-5年', value:113},{name:'5-10年', value:14},{name:'不限', value:14},{name:'应届毕业生', value:17}],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    pieChart125.setOption(pieChart125Option);
+</script>
+
+<div id="barChart126" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart126 = echarts.init(document.getElementById('barChart126'));
+    var barChart126Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python招聘职位城区分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["未爬取到详细城区","嘉定区","奉贤区","宝山区","徐汇区","普陀区","杨浦区","松江区","浦东新区","虹口区","长宁区","闵行区","闸北区","静安区","黄浦区"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,2,2,43,14,31,2,76,8,32,13,1,16,17]
+            }
+        ]
+    };
+    barChart126.setOption(barChart126Option);
+</script>
+
+<div id="multiBarChart127" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var multiBarChart127 = echarts.init(document.getElementById('multiBarChart127'));
+    multiBarChart127Option = {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow',
+                label: {
+                    show: true
+                }
+            }
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        legend: {
+            data:["1-3年","1年以下","3-5年","5-10年","","不限","应届毕业生"],
+            selectedMode:'single',
+            itemGap: 5
+        },
+        grid: {
+            top: '12%',
+            left: '1%',
+            right: '10%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type : 'category',
+                data : ["未爬取到详细城区","嘉定区","奉贤区","宝山区","徐汇区","普陀区","杨浦区","松江区","浦东新区","虹口区","长宁区","闵行区","闸北区","静安区","黄浦区"]
+            }
+        ],
+        yAxis: [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [{name:'1-3年',type: 'bar',data:[1,0,0,2,16,4,12,0,24,4,15,6,1,6,5]},{name:'1年以下',type: 'bar',data:[0,1,0,0,0,1,0,0,1,0,0,1,0,0,1]},{name:'3-5年',type: 'bar',data:[0,0,2,0,19,7,15,0,37,4,11,6,0,5,7]},{name:'5-10年',type: 'bar',data:[0,0,0,0,0,1,2,0,5,0,2,0,0,3,1]},{name:'不限',type: 'bar',data:[0,0,0,0,4,0,0,1,4,0,1,0,0,2,2]},{name:'应届毕业生',type: 'bar',data:[0,0,0,0,4,1,2,1,5,0,3,0,0,0,1]}]
+    };
+    multiBarChart127.setOption(multiBarChart127Option);
+</script>
+
+<div id="barChart128" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart128 = echarts.init(document.getElementById('barChart128'));
+    var barChart128Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python1-3年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["5k","6k","7k","8k","10k","12k","13k","15k","16k","18k","20k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,6,13,30,5,1,32,1,1,5]
+            }
+        ]
+    };
+    barChart128.setOption(barChart128Option);
+</script>
+
+<div id="barChart129" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart129 = echarts.init(document.getElementById('barChart129'));
+    var barChart129Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python1年以下工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["3k","4k","6k","7k","8k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,1,1,1]
+            }
+        ]
+    };
+    barChart129.setOption(barChart129Option);
+</script>
+
+<div id="barChart130" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart130 = echarts.init(document.getElementById('barChart130'));
+    var barChart130Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python3-5年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["6k","7k","8k","10k","12k","13k","14k","15k","16k","17k","18k","20k","22k","23k","25k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,1,8,16,1,2,45,3,1,9,19,1,1,4]
+            }
+        ]
+    };
+    barChart130.setOption(barChart130Option);
+</script>
+
+<div id="barChart131" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart131 = echarts.init(document.getElementById('barChart131'));
+    var barChart131Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python5-10年工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["15k","18k","20k","25k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[3,2,6,3]
+            }
+        ]
+    };
+    barChart131.setOption(barChart131Option);
+</script>
+
+<div id="barChart132" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart132 = echarts.init(document.getElementById('barChart132'));
+    var barChart132Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python不限工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["4k","6k","10k","12k","15k","20k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,1,6,1,3,2]
+            }
+        ]
+    };
+    barChart132.setOption(barChart132Option);
+</script>
+
+<div id="barChart133" style="width: 600px;height:400px;margin: auto;"></div>
+<script>
+    var barChart133 = echarts.init(document.getElementById('barChart133'));
+    var barChart133Option = {
+        color: ['#3398DB'],
+        title : {
+            text: '上海python应届毕业生工作经验底薪分布',
+            subtext: '2018年03月31日',
+            x:'center'
+        },
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ["2k","3k","4k","5k","8k","9k","10k"],
+                axisTick: {
+                    alignWithLabel: true
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                name : '职位数量'
+            }
+        ],
+        series : [
+            {
+                name:'职位数量',
+                type:'bar',
+                barWidth: '60%',
+                data:[1,3,5,2,2,1,3]
+            }
+        ]
+    };
+    barChart133.setOption(barChart133Option);
+</script>
+
+
+</body>
+</html>
